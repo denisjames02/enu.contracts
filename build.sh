@@ -1,9 +1,9 @@
 #! /bin/bash
 
-contracts=( "eosio.token"
-            "eosio.system"
-            "eosio.msig"
-            "eosio.sudo" )
+contracts=( "enu.token"
+            "enu.system"
+            "enu.msig"
+            "enu.sudo" )
 
 unamestr=`uname`
 if [[ "${unamestr}" == 'Darwin' ]]; then
@@ -50,7 +50,7 @@ fi
 
 CXX_COMPILER=clang++-4.0
 
-EOSIO_PREFIX=/usr/local
+ENUMIVO_PREFIX=/usr/local
 
 export BOOST=${BOOST}
 export PREFIX=${PREFIX}
@@ -76,7 +76,7 @@ root_dir=`pwd`
 pushd tests &> /dev/null
 mkdir -p build
 pushd build &> /dev/null
-cmake -DCMAKE_CXX_COMPILER="${CXX_COMPILER}" -DROOT_DIR="${root_dir}" -DEOSIO_INSTALL_PREFIX="${EOSIO_PREFIX}" -DOPENSSL_INSTALL_PREFIX="${OPENSSL}" -DSECP256K1_INSTALL_LIB="${EOSIO_PREFIX}" -DBOOST_ROOT="${BOOST}" ../
+cmake -DCMAKE_CXX_COMPILER="${CXX_COMPILER}" -DROOT_DIR="${root_dir}" -DENUMIVO_INSTALL_PREFIX="${ENUMIVO_PREFIX}" -DOPENSSL_INSTALL_PREFIX="${OPENSSL}" -DSECP256K1_INSTALL_LIB="${ENUMIVO_PREFIX}" -DBOOST_ROOT="${BOOST}" ../
 make -j8
 cp unit_test ../../
 popd &> /dev/null

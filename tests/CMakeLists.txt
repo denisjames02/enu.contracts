@@ -1,5 +1,5 @@
 cmake_minimum_required( VERSION 3.5 )
-project( EOSIO_CONTRACTS_TESTS )
+project( ENUMIVO_CONTRACTS_TESTS )
 set( VERSION_MAJOR 1 )
 set( VERSION_MINOR 0 )
 set( VERSION_PATCH 6 )
@@ -40,21 +40,21 @@ find_package(Boost 1.67 REQUIRED COMPONENTS
 
 file(GLOB UNIT_TESTS "*.cpp")
 
-find_library(libtester eosio_testing )
-find_library(libchain eosio_chain ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libfc fc ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libbinaryen binaryen ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libwasm WASM ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libwast WAST ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libir IR     ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libplatform Platform ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(liblogging Logging ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libruntime Runtime ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libsoftfloat softfloat ${EOSIO_INSTALL_PREFIX}/lib)
+find_library(libtester enumivo_testing )
+find_library(libchain enumivo_chain ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libfc fc ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libbinaryen binaryen ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libwasm WASM ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libwast WAST ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libir IR     ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libplatform Platform ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(liblogging Logging ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libruntime Runtime ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libsoftfloat softfloat ${ENUMIVO_INSTALL_PREFIX}/lib)
 find_library(liboscrypto crypto ${OPENSSL_INSTALL_PREFIX}/lib)
 find_library(libosssl ssl ${OPENSSL_INSTALL_PREFIX}/lib)
-find_library(libchainbase chainbase ${EOSIO_INSTALL_PREFIX}/lib)
-find_library(libbuiltins builtins ${EOSIO_INSTALL_PREFIX}/lib)
+find_library(libchainbase chainbase ${ENUMIVO_INSTALL_PREFIX}/lib)
+find_library(libbuiltins builtins ${ENUMIVO_INSTALL_PREFIX}/lib)
 find_library(libsecp256k1 secp256k1 ${SECP256K1_INSTALL_LIB})
 
 add_executable( unit_test ${UNIT_TESTS} )
@@ -113,9 +113,9 @@ target_link_libraries( unit_test
 target_include_directories( unit_test PUBLIC
                             ${Boost_INCLUDE_DIRS}
                             ${OPENSSL_INSTALL_PREFIX}/include
-                            ${EOSIO_INSTALL_PREFIX}/include
-                            ${EOSIO_INSTALL_PREFIX}/include/eosio/wasm-jit/Include
-                            ${EOSIO_INSTALL_PREFIX}/include/eosio/softfloat/include
+                            ${ENUMIVO_INSTALL_PREFIX}/include
+                            ${ENUMIVO_INSTALL_PREFIX}/include/enumivo/wasm-jit/Include
+                            ${ENUMIVO_INSTALL_PREFIX}/include/enumivo/softfloat/include
                             ${CMAKE_CURRENT_BINARY_DIR}/include )
 
 #Manually run unit_test for all supported runtimes
